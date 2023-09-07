@@ -1,9 +1,12 @@
 import React from "react";
+import "../../scss/footer/footer.scss";
 
-export default function Footer() {
+function Footer() {
   return (
-    <div>
+    <div className="footer">
       <p>footer</p>
     </div>
   );
 }
+
+export default Footer;

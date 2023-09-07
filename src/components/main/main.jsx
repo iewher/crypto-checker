@@ -1,7 +1,8 @@
 import React from "react";
+import "../../scss/main/main.scss";
 import PageLayout from "../page-layout/page-layout";
 
-export default function Main() {
+function Main() {
   return (
     <PageLayout>
       <div className="main">
@@ -10,3 +11,5 @@ export default function Main() {
     </PageLayout>
   );
 }
+
+export default Main;

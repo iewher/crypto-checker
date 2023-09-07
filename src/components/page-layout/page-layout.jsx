@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Header from '../header/header';
-import Footer from '../footer/footer';
+import React from "react";
+import PropTypes from "prop-types";
+import Header from "../header/header";
+import Footer from "../footer/footer";
 
 function PageLayout({ children }) {
   return (
-    <div className="wrapper">
+    <div>
       <Header />
-      <main className="main">{children}</main>
+      <div>{children}</div>
       <Footer />
     </div>
   );

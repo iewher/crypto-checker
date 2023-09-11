@@ -14,7 +14,11 @@ function Header() {
           <input placeholder="поиск" />
         </div>
         <div className="header__menu">
-          <button>1</button>
+          <a href="">Что-то</a>
+          <a href="">Что-то</a>
+          <a href="">Что-то</a>
+          <a href="">Что-то</a>
+          <button>Контакты</button>
         </div>
       </div>
     </div>

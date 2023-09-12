@@ -1,24 +1,26 @@
 import React from "react";
 import "../../scss/header/header.scss";
-// import logo from "../../svg/logo.svg";
+import { Link } from "react-scroll";
+import logo from "../../svg/logo-header.svg";
 
 function Header() {
   return (
-    <div className="header">
+    <div className="header" id="header">
       <div className="header__container">
         <div className="header__logo">
-          {/* <img src={logo} alt="" /> */}
-          <p>logo here</p>
+          <img src={logo} alt="" />
         </div>
         <div className="header__search">
-          <input placeholder="поиск" />
+          <input placeholder="Найди криптовалюту" />
         </div>
         <div className="header__menu">
-          <a href="">Что-то</a>
-          <a href="">Что-то</a>
-          <a href="">Что-то</a>
-          <a href="">Что-то</a>
-          <button>Контакты</button>
+          <a href="#present">Презент</a>
+          <a href="#table">Таблица</a>
+          <a href="#plus">Преимущества</a>
+          <a href="#clients">Клиенты</a>
+          <Link to="contacts">
+            <button>Контакты</button>
+          </Link>
         </div>
       </div>
     </div>

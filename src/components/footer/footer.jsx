@@ -4,7 +4,9 @@ import "../../scss/footer/footer.scss";
 function Footer() {
   return (
     <div className="footer">
-      <p>footer</p>
+      <div className="footer-container">
+        <p>2023 - Crypto checker</p>
+      </div>
     </div>
   );
 }

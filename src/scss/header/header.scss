@@ -17,11 +17,20 @@
 
   &__logo {
     height: 50px;
-    width: 100px;
+    width: auto;
     color: black;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 150%;
+    }
   }
 
   &__search {
+    display: flex;
+    align-items: center;
+    
     input {
       height: 40px;
       width: 250px;

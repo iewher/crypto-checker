@@ -7,4 +7,13 @@ body {
 
 html {
   scroll-behavior: smooth;
+  ::-webkit-scrollbar {
+    background: white;
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+  }
 }

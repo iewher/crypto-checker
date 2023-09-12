@@ -17,7 +17,7 @@ function Header() {
           <a href="#present">Презент</a>
           <a href="#table">Таблица</a>
           <a href="#plus">Преимущества</a>
-          <a href="#clients">Клиенты</a>
+          <a href="#plans">Планы</a>
           <Link to="contacts">
             <button>Контакты</button>
           </Link>

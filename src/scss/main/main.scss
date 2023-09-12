@@ -115,7 +115,7 @@
       }
     }
 
-    &__clients {
+    &__plans {
       height: auto;
       min-height: 100vh;
 
@@ -131,6 +131,38 @@
         justify-content: space-between;
         font-size: 32px;
         color: black;
+      }
+
+      .spans {
+        display: flex;
+        flex-direction: column;
+
+        p {
+          display: flex;
+          align-items: center;
+          min-height: 110px;
+          border-top: 1px solid gray;
+          border-bottom: 1px solid gray;
+          margin: 0;
+          color: gray;
+
+          span {
+            font-weight: bold;
+            color: black;
+          }
+
+          &:first-child {
+            border: none;
+          }
+
+          &:nth-child(3) {
+            border: none;
+          }
+
+          &:last-child {
+            border: none;
+          }
+        }
       }
     }
 
@@ -163,7 +195,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        
+
         a {
           color: black;
           height: 150px;
@@ -188,7 +220,6 @@
     height: 65px;
     width: 65px;
   }
-
 }
 
 .up {

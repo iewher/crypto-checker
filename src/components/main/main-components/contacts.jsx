@@ -11,7 +11,7 @@ export default function Contacts() {
     }
   };
 
-//   console.log(active);
+  //   console.log(active);
 
   return (
     <div className="main-container__contacts" id="contacts">

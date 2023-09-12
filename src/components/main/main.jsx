@@ -5,8 +5,8 @@ import Present from "./main-components/present";
 import Table from "./main-components/table";
 import ButtonUp from "../button-up/button-up";
 import Plus from "./main-components/plus";
-import Clients from "./main-components/clients";
 import Contacts from "./main-components/contacts";
+import Plans from "./main-components/plans";
 
 function Main() {
   return (
@@ -16,7 +16,7 @@ function Main() {
           <Present />
           <Table />
           <Plus />
-          <Clients />
+          <Plans />
           <Contacts />
         </div>
         <ButtonUp />

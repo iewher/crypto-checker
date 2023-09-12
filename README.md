@@ -1,3 +1,29 @@
+# Краткая справка
+
+Crypto-checker - сайт, для отслеживания крипты, удобный поиск, стильный дизайн
+
+## Использованные API
+  
+1. https://min-api.cryptocompare.com/
+2. https://www.coingecko.com/en/api
+
+## Установка
+  
+Перед запуском проекта обязательно прописать в терминал:
+### `npm install` 
+либо 
+### `npm install --legacy-peer-deps`
+
+# Обзор
+
+Краткий обзор моего проекта
+
+<div align="center">
+
+<image src="public/git/page-main.png" height="auto" width="650">
+  
+</div>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

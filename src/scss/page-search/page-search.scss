@@ -1,0 +1,39 @@
+.page-search {
+  position: absolute;
+  color: black;
+  border: 2px solid black;
+  height: auto;
+  width: 1000px;
+  left: 20%;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  transition: 0.3s ease-out;
+
+  h1 {
+    font-size: 32px;
+    color: gray;
+    border-bottom: 1px solid gray;
+    line-height: 50px;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    color: black;
+    margin: 16px 0;
+  }
+
+  img {
+    margin-left: 5px;
+    height: 35px;
+    width: 35px;
+  }
+}

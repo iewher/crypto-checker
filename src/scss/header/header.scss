@@ -30,7 +30,8 @@
   &__search {
     display: flex;
     align-items: center;
-    
+    gap: 5px;
+
     input {
       height: 40px;
       width: 250px;
@@ -38,6 +39,22 @@
       border: 2px solid black;
       text-indent: 10px;
       font-size: 16px;
+    }
+
+    button {
+      border-radius: 4px;
+      height: 46px;
+      width: 46px;
+      border: 2px solid black;
+      font-size: 16px;
+      color: white;
+      background: black;
+      transition: 0.3s;
+
+      &:hover {
+        background: white;
+        color: black;
+      }
     }
   }
 

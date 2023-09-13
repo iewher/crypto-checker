@@ -2,6 +2,7 @@ import React from "react";
 import "../../scss/header/header.scss";
 import { Link } from "react-scroll";
 import logo from "../../svg/logo-header.svg";
+import Search from "../search/search";
 
 function Header() {
   return (
@@ -10,9 +11,7 @@ function Header() {
         <div className="header__logo">
           <img src={logo} alt="" />
         </div>
-        <div className="header__search">
-          <input placeholder="Найди криптовалюту" />
-        </div>
+        <Search />
         <div className="header__menu">
           <a href="#present">Презент</a>
           <a href="#table">Таблица</a>

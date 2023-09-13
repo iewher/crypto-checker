@@ -27,8 +27,10 @@ export default function Search() {
     }
   });
 
-  console.log(data);
-  // console.log(check);
+  const handleClose = () => {
+    setValue("");
+    setCheck(false);
+  };
 
   return (
     <div className="header__search">
@@ -40,7 +42,7 @@ export default function Search() {
       <button onClick={handleSearch}>
         <AiOutlineSearch />
       </button>
-      {check && <PageSearch data={data} />}
+      {check && <PageSearch data={data} onClose={handleClose} />}
     </div>
   );
 }

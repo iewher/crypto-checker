@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+import { BiSolidDownArrow } from "react-icons/bi";
+import { BiSolidUpArrow } from "react-icons/bi";
+
 export default function Table() {
   const currencies = ["RUB", "USD", "EUR", "JPY"];
   const [activeCurrency, setActiveCurrency] = useState(currencies[0]);
@@ -56,8 +59,22 @@ export default function Table() {
                 <td>{index + 1}</td>
                 <td>{item.CoinInfo.FullName}</td>
                 <td>{item.DISPLAY[activeCurrency]?.PRICE || "N/A"}</td>
-                <td>{item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR} %</td>
-                <td>{item.DISPLAY[activeCurrency]?.CHANGEPCT24HOUR} %</td>
+                <td>
+                  {item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR} %
+                  {item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR > 0 ? (
+                    <BiSolidUpArrow color="green" className="icon" />
+                  ) : (
+                    <BiSolidDownArrow color="red" className="icon" />
+                  )}
+                </td>
+                <td>
+                  {item.DISPLAY[activeCurrency]?.CHANGEPCT24HOUR} %
+                  {item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR > 0 ? (
+                    <BiSolidUpArrow color="green" className="icon" />
+                  ) : (
+                    <BiSolidDownArrow color="red" className="icon" />
+                  )}
+                </td>
                 <td>{item.DISPLAY[activeCurrency]?.VOLUME24HOURTO}</td>
                 <td>{item.DISPLAY[activeCurrency]?.MKTCAP}</td>
               </tr>

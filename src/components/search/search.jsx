@@ -29,8 +29,11 @@ export default function Search() {
 
   const handleClose = () => {
     setValue("");
+    setData([]);
     setCheck(false);
   };
+
+  console.log(data);
 
   return (
     <div className="header__search">

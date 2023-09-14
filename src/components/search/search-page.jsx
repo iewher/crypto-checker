@@ -1,19 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../scss/page-search/page-search.scss";
 
 import { BiSolidDownArrow } from "react-icons/bi";
 import { BiSolidUpArrow } from "react-icons/bi";
 
 export default function PageSearch({ data, onClose }) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setVisible(true);
+  }, [data]);
+
   const handleClose = () => {
-    onClose();
+    setVisible(false);
+    setTimeout(() => {
+      onClose();
+    }, 350);
   };
 
   return (
-    <div className="page-search">
+    <div className={`page-search ${visible ? "visible" : ""}`}>
       <h1>Кратко о монете:</h1>
       <p>Название: {data.name}</p>
-      <p>Символ: {data.symbol}</p>
+      <p>
+        Символ:&nbsp; <span className="symbol">{data.symbol}</span>
+      </p>
       <p>
         Логотип:{" "}
         <img src={data.image.small || data.image.thumb || data.image.large} />

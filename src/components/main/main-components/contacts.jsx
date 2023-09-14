@@ -3,15 +3,13 @@ import { BsTelegram } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 
 export default function Contacts() {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
 
   const handleSetActive = (value) => {
     if (value !== active) {
       setActive(value);
     }
   };
-
-  //   console.log(active);
 
   return (
     <div className="main-container__contacts" id="contacts">

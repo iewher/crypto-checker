@@ -27,7 +27,10 @@ export default function PageSearch({ data, onClose }) {
       </p>
       <p>
         Логотип:{" "}
-        <img src={data.image.small || data.image.thumb || data.image.large} />
+        <img
+          src={data.image.small || data.image.thumb || data.image.large}
+          alt="coin-logo"
+        />
       </p>
       {data.contract_address && <p>Контракт: {data.contract_address}</p>}
 

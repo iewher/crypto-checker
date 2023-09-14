@@ -5,14 +5,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 96px;
+  min-height: 100px;
 
   &-container {
     border-top: 1px solid gray;
     width: 1440px;
+    padding: 20px 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     color: gray;
+  }
+
+  .block {
+    display: flex;
+    flex-direction: column;
+    color: gray;
+
+    a {
+      color: gray;
+      text-decoration: none;
+      line-height: 25px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }

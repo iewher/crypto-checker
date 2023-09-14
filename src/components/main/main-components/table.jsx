@@ -23,69 +23,77 @@ export default function Table() {
   }, [activeCurrency]);
 
   return (
-    <div className="main-container__table" id="table">
-      <h1>Таблица</h1>
-      <div className="list">
-        {currencies.map((currency) => (
-          <p
-            key={currency}
-            className={activeCurrency === currency ? "active" : ""}
-            onClick={() => handleSetActive(currency)}
-          >
-            {currency}
-          </p>
-        ))}
-      </div>
-      {data !== [] ? (
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Название</th>
-              <th>Цена</th>
-              <th>1 ч</th>
-              <th>24 ч</th>
-              <th>Объем торгов за 24 часа</th>
-              <th>Рыночная кап-ция</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.keys(data).length > 0 &&
-              data.map((item, index) => (
-                <tr>
-                  <td>{index + 1}</td>
-                  <td>{item.CoinInfo.FullName}</td>
-                  <td>{item.DISPLAY[activeCurrency]?.PRICE || "N/A"}</td>
-                  <td>
-                    {item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR} %
-                    {item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR > 0 ? (
-                      <BiSolidUpArrow color="green" className="icon" />
-                    ) : (
-                      <BiSolidDownArrow color="red" className="icon" />
-                    )}
-                  </td>
-                  <td>
-                    {item.DISPLAY[activeCurrency]?.CHANGEPCT24HOUR} %
-                    {item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR > 0 ? (
-                      <BiSolidUpArrow color="green" className="icon" />
-                    ) : (
-                      <BiSolidDownArrow color="red" className="icon" />
-                    )}
-                  </td>
-                  <td>{item.DISPLAY[activeCurrency]?.VOLUME24HOURTO}</td>
-                  <td>{item.DISPLAY[activeCurrency]?.MKTCAP}</td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+    <>
+      {data.length !== 0 ? (
+        <div className="main-container__table" id="table">
+          <h1>Таблица</h1>
+          <div className="list">
+            {currencies.map((currency) => (
+              <p
+                key={currency}
+                className={activeCurrency === currency ? "active" : ""}
+                onClick={() => handleSetActive(currency)}
+              >
+                {currency}
+              </p>
+            ))}
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Название</th>
+                <th>Цена</th>
+                <th>1 ч</th>
+                <th>24 ч</th>
+                <th>Объем торгов за 24 часа</th>
+                <th>Рыночная кап-ция</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.keys(data).length > 0 &&
+                data.map((item, index) => (
+                  <tr>
+                    <td>{index + 1}</td>
+                    <td>{item.CoinInfo.FullName}</td>
+                    <td>
+                      {item.DISPLAY[activeCurrency]?.PRICE || "Грузим..."}
+                    </td>
+                    <td>
+                      {item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR ||
+                        "Грузим..."}{" "}
+                      %
+                      {item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR > 0 ? (
+                        <BiSolidUpArrow color="green" className="icon" />
+                      ) : (
+                        <BiSolidDownArrow color="red" className="icon" />
+                      )}
+                    </td>
+                    <td>
+                      {item.DISPLAY[activeCurrency]?.CHANGEPCT24HOUR} %
+                      {item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR > 0 ? (
+                        <BiSolidUpArrow color="green" className="icon" />
+                      ) : (
+                        <BiSolidDownArrow color="red" className="icon" />
+                      )}
+                    </td>
+                    <td>
+                      {item.DISPLAY[activeCurrency]?.VOLUME24HOURTO ||
+                        "Грузим..."}
+                    </td>
+                    <td>
+                      {item.DISPLAY[activeCurrency]?.MKTCAP || "Грузим..."}
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
       ) : (
         <div className={"no-table"}>
-          <Oval color="white"
-          height={'50px'}
-          secondaryColor={'black'}
-          />
+          <Oval color="white" height={"50px"} secondaryColor={"black"} />
         </div>
       )}
-    </div>
+    </>
   );
 }

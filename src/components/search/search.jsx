@@ -33,8 +33,6 @@ export default function Search() {
     setCheck(false);
   };
 
-  console.log(data);
-
   return (
     <div className="header__search">
       <input

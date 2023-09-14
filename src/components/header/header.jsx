@@ -1,15 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../scss/header/header.scss";
 import { Link } from "react-scroll";
 import logo from "../../svg/logo-header.svg";
 import Search from "../search/search";
 
+import { BsFillMoonFill } from "react-icons/bs"; //moon
+import { BsFillSunFill } from "react-icons/bs"; //sun
+
 function Header() {
+  const [isLightTheme, setIsLightTheme] = useState(true);
+
+  const root = document.getElementById("root");
+
+  const switchTheme = () => {
+    setIsLightTheme((prevTheme) => !prevTheme);
+    if (isLightTheme === true) {
+      root.classList.remove("light");
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+      root.classList.add("light");
+    }
+  };
+
   return (
     <div className="header" id="header">
       <div className="header__container">
         <div className="header__logo">
-          <img src={logo} alt="" />
+          <h3>Crypto checker</h3>
         </div>
         <Search />
         <div className="header__menu">
@@ -21,6 +39,9 @@ function Header() {
             <button>Контакты</button>
           </Link>
         </div>
+        <button onClick={switchTheme} className="switch-theme">
+          {isLightTheme ? <BsFillMoonFill /> : <BsFillSunFill />}
+        </button>
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ export default function Search() {
     if (value === data.id) {
       setCheck(true);
     }
-  });
+  }, [value, data.id]);
 
   const handleClose = () => {
     setValue("");

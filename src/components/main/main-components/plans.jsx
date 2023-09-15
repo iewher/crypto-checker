@@ -1,5 +1,7 @@
 import React from "react";
 
+//TODO: разбить на компоненты
+
 export default function Plans() {
   return (
     <div className="main-container__plans" id="plans">

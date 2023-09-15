@@ -1,5 +1,7 @@
 import React from "react";
 
+//TODO: разбить на компоненты
+
 export default function Plus() {
   return (
     <div className="main-container__plus" id="plus">

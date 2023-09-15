@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../../scss/header/header.scss";
 import { Link } from "react-scroll";
-import logo from "../../svg/logo-header.svg";
 import Search from "../search/search";
-
+import logo from "../../svg/logo-header.svg";
+import logo_dark from "../../svg/logo-header-dark.svg";
 import { BsFillMoonFill } from "react-icons/bs"; //moon
 import { BsFillSunFill } from "react-icons/bs"; //sun
 
@@ -27,7 +27,11 @@ function Header() {
     <div className="header" id="header">
       <div className="header__container">
         <div className="header__logo">
-          <h3>Crypto checker</h3>
+          {isLightTheme ? (
+            <img src={logo} alt="logo" />
+          ) : (
+            <img src={logo_dark} alt="logo-dark" />
+          )}
         </div>
         <Search />
         <div className="header__menu">

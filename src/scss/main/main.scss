@@ -16,6 +16,17 @@
       justify-content: space-between;
       align-items: center;
 
+      // .logo {
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   background-image: url('../../svg/logo-main.svg');
+      //   background-size: contain;
+      //   background-repeat: no-repeat;
+      //   height: 50%;
+      //   width: 50%;
+      // }
+
       .text {
         a {
           color: black;
@@ -40,6 +51,8 @@
       }
     }
 
+    //TODO: поработать с цветами в таблице, смотрятся убого
+
     &__table {
       height: auto;
       min-height: 100vh;
@@ -50,6 +63,8 @@
         border-bottom: 1px solid gray;
         line-height: 100px;
       }
+
+      //TODO: накинуть красивую анимку для проявления text-decoration через opacity
 
       .list {
         display: flex;

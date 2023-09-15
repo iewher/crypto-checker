@@ -1,6 +1,8 @@
 import React from "react";
 import "../../scss/footer/footer.scss";
 
+//TODO: footer смотрится очень просто, добавить фич
+
 function Footer() {
   return (
     <div className="footer">

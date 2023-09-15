@@ -3,6 +3,8 @@ import { BiSolidDownArrow } from "react-icons/bi";
 import { BiSolidUpArrow } from "react-icons/bi";
 import { Oval } from "react-loader-spinner";
 
+//TODO: пакет Oval много хавает памяти
+
 export default function Table() {
   const currencies = ["RUB", "USD", "EUR", "JPY"];
   const [activeCurrency, setActiveCurrency] = useState(currencies[0]);
@@ -21,6 +23,9 @@ export default function Table() {
         setData(data.Data);
       });
   }, [activeCurrency]);
+
+  //TODO: добавить virtualize list на таблицу для оптимизации
+  //TODO: добавить остлеживаемое в таблицу
 
   return (
     <>

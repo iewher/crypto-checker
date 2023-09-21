@@ -36,6 +36,7 @@ export default function Search() {
   return (
     <div className="header__search">
       <input
+        type="search"
         placeholder="Найди криптовалюту"
         value={value}
         onChange={handleInputChange}

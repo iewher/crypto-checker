@@ -1,28 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import logo from "../../../svg/logo-main.svg";
 import logo_dark from "../../../svg/logo-main-dark.svg";
+import { useThemeDetection } from "../../theme-utils/theme-utils";
 
 //TODO: заменить чем-нибудь текст в этом блоке, мб какой-нибудь popover из mui?
 
 export default function Present() {
-  const [isLightTheme, setIsLightTheme] = useState(true);
-  const root = document.getElementById("root");
-
-  useEffect(() => {
-    const checkTheme = () => {
-      if (root.classList.contains("light")) {
-        setIsLightTheme(true);
-      } else {
-        setIsLightTheme(false);
-      }
-    };
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
-    checkTheme();
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  const isLightTheme = useThemeDetection();
 
   return (
     <div className="main-container__present" id="present">

@@ -2,10 +2,11 @@ import React from "react";
 import "../../scss/main/main.scss";
 import PageLayout from "../page-layout/page-layout";
 import Present from "./main-components/present";
-import Table from "./main-components/table";
 import ButtonUp from "../button-up/button-up";
 import Plus from "./main-components/plus";
 import Plans from "./main-components/plans";
+import TableMain from "./main-components/table";
+import StepsMain from "./main-components/steps";
 
 function Main() {
   return (
@@ -13,8 +14,9 @@ function Main() {
       <div className="main">
         <div className="main-container">
           <Present />
-          <Table />
+          <TableMain />
           <Plus />
+          <StepsMain />
           <Plans />
         </div>
         <ButtonUp />

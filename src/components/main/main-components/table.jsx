@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { BiSolidDownArrow } from "react-icons/bi";
-import { BiSolidUpArrow } from "react-icons/bi";
+import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
 import { Oval } from "react-loader-spinner";
+import { Table, ConfigProvider } from "antd";
 
-//TODO: пакет Oval много хавает памяти
-
-export default function Table() {
+export default function TableMain() {
   const currencies = ["RUB", "USD", "EUR", "JPY"];
   const [activeCurrency, setActiveCurrency] = useState(currencies[0]);
   const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const handleSetActive = (currency) => {
     setActiveCurrency(currency);
@@ -21,15 +20,94 @@ export default function Table() {
       .then((response) => response.json())
       .then((data) => {
         setData(data.Data);
+        setLoading(false);
       });
   }, [activeCurrency]);
 
-  //TODO: добавить virtualize list на таблицу для оптимизации
-  //TODO: добавить остлеживаемое в таблицу
+  const columns = [
+    {
+      title: "#",
+      dataIndex: "index",
+      key: "index",
+    },
+    {
+      title: "Название",
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "Цена",
+      dataIndex: "price",
+      key: "price",
+    },
+    {
+      title: "1 ч",
+      dataIndex: "change1h",
+      key: "change1h",
+      render: (change1h) => (
+        <>
+          {`${change1h}% `}
+          {change1h > 0 ? (
+            <BiSolidUpArrow color="green" className="icon" />
+          ) : (
+            <BiSolidDownArrow color="red" className="icon" />
+          )}
+        </>
+      ),
+    },
+    {
+      title: "24 ч",
+      dataIndex: "change24h",
+      key: "change24h",
+      render: (change24h) => (
+        <>
+          {`${change24h}% `}
+          {change24h > 0 ? (
+            <BiSolidUpArrow color="green" className="icon" />
+          ) : (
+            <BiSolidDownArrow color="red" className="icon" />
+          )}
+        </>
+      ),
+    },
+    {
+      title: "Объем торгов за 24 часа",
+      dataIndex: "volume24h",
+      key: "volume24h",
+    },
+    {
+      title: "Рыночная кап-ция",
+      dataIndex: "marketCap",
+      key: "marketCap",
+    },
+  ];
+
+  const dataSource =
+    Object.keys(data).length > 0
+      ? data.map((item, index) => {
+          return {
+            key: index,
+            index: index + 1,
+            name: item.CoinInfo.FullName,
+            price: item.DISPLAY[activeCurrency]?.PRICE || "Грузим...",
+            change1h:
+              item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR || "Грузим...",
+            change24h:
+              item.DISPLAY[activeCurrency]?.CHANGEPCT24HOUR || "Грузим...",
+            volume24h:
+              item.DISPLAY[activeCurrency]?.VOLUME24HOURTO || "Грузим...",
+            marketCap: item.DISPLAY[activeCurrency]?.MKTCAP || "Грузим...",
+          };
+        })
+      : [];
 
   return (
     <>
-      {data.length !== 0 ? (
+      {loading ? (
+        <div className={"no-table"}>
+          <Oval color="white" height={"50px"} secondaryColor={"black"} />
+        </div>
+      ) : (
         <div className="main-container__table" id="table">
           <h1>Таблица</h1>
           <div className="list">
@@ -43,60 +121,11 @@ export default function Table() {
               </p>
             ))}
           </div>
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Название</th>
-                <th>Цена</th>
-                <th>1 ч</th>
-                <th>24 ч</th>
-                <th>Объем торгов за 24 часа</th>
-                <th>Рыночная кап-ция</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Object.keys(data).length > 0 &&
-                data.map((item, index) => (
-                  <tr>
-                    <td>{index + 1}</td>
-                    <td>{item.CoinInfo.FullName}</td>
-                    <td>
-                      {item.DISPLAY[activeCurrency]?.PRICE || "Грузим..."}
-                    </td>
-                    <td>
-                      {item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR ||
-                        "Грузим..."}{" "}
-                      %
-                      {item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR > 0 ? (
-                        <BiSolidUpArrow color="green" className="icon" />
-                      ) : (
-                        <BiSolidDownArrow color="red" className="icon" />
-                      )}
-                    </td>
-                    <td>
-                      {item.DISPLAY[activeCurrency]?.CHANGEPCT24HOUR} %
-                      {item.DISPLAY[activeCurrency]?.CHANGEPCTHOUR > 0 ? (
-                        <BiSolidUpArrow color="green" className="icon" />
-                      ) : (
-                        <BiSolidDownArrow color="red" className="icon" />
-                      )}
-                    </td>
-                    <td>
-                      {item.DISPLAY[activeCurrency]?.VOLUME24HOURTO ||
-                        "Грузим..."}
-                    </td>
-                    <td>
-                      {item.DISPLAY[activeCurrency]?.MKTCAP || "Грузим..."}
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </div>
-      ) : (
-        <div className={"no-table"}>
-          <Oval color="white" height={"50px"} secondaryColor={"black"} />
+          <Table
+            columns={columns}
+            dataSource={dataSource}
+            style={{ background: "#fff" }}
+          />
         </div>
       )}
     </>

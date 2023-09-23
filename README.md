@@ -20,7 +20,13 @@ Crypto-checker - сайт, для отслеживания крипты, удо�
 
 <div align="center">
 
+Главная страница
+
 <image src="public/git/page-main.png" height="auto" width="650">
+
+Модальное окно при поиске монеты
+
+<image src="public/git/page-modal.png" height="auto" width="auto">
   
 </div>
 

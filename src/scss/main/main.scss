@@ -16,33 +16,10 @@
       justify-content: space-between;
       align-items: center;
 
-      // .logo {
-      //   display: flex;
-      //   justify-content: center;
-      //   align-items: center;
-      //   background-image: url('../../svg/logo-main.svg');
-      //   background-size: contain;
-      //   background-repeat: no-repeat;
-      //   height: 50%;
-      //   width: 50%;
-      // }
-
       .text {
-        a {
-          color: black;
-          transition: 0.3s;
-          font-size: 20px;
-          font-weight: bold;
-
-          &:hover {
-            text-decoration: none;
-          }
-        }
-
-        p {
-          max-width: 500px;
-          font-size: 17px;
-          line-height: 30px;
+        .ant-collapse {
+          min-width: 600px;
+          max-width: 600px;
         }
       }
 
@@ -154,6 +131,65 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    &__slider {
+      min-height: 40vh;
+
+      &-header {
+        h1 {
+          font-size: 48px;
+          color: gray;
+          border-bottom: 1px solid gray;
+          line-height: 100px;
+        }
+      }
+
+      &-content {
+        height: 500px;
+        display: flex;
+
+        .swiper-horizontal {
+          display: flex;
+          align-items: center;
+        }
+
+        .swiper-wrapper {
+          height: auto;
+          display: flex;
+          align-items: center;
+        }
+
+        .slide {
+          border-radius: 6px;
+          height: 200px;
+          width: 200px;
+          color: black;
+          display: flex;
+          background: white;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+          transition: 0.3s;
+          gap: 5px;
+
+          &:hover {
+            transform: translateY(-10px);
+          }
+
+          img {
+            height: 80%;
+            width: 80%;
+          }
+
+          p {
+            margin: 0;
+            padding: 0;
+            color: gray;
+          }
+        }
+      }
     }
 
     &__plans {

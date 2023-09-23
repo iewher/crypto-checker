@@ -7,6 +7,7 @@ import Plus from "./main-components/plus";
 import Plans from "./main-components/plans";
 import TableMain from "./main-components/table";
 import StepsMain from "./main-components/steps";
+import SliderMain from "./main-components/slider";
 
 function Main() {
   return (
@@ -17,6 +18,7 @@ function Main() {
           <TableMain />
           <Plus />
           <StepsMain />
+          <SliderMain />
           <Plans />
         </div>
         <ButtonUp />

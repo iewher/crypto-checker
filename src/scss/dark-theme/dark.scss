@@ -1,12 +1,4 @@
 .dark {
-  // ::-webkit-scrollbar {
-  //   background: green;
-  // }
-
-  // ::-webkit-scrollbar-thumb {
-  //   background: white;
-  // }
-
   .header {
     background: black;
 
@@ -76,6 +68,18 @@
     color: white;
 
     .main-container__present {
+      .ant-collapse {
+        background-color: black;
+
+        .ant-collapse-expand-icon {
+          color: white;
+        }
+
+        span {
+          color: white;
+        }
+      }
+
       a {
         color: white;
       }
@@ -93,6 +97,14 @@
       .spans {
         span {
           color: white;
+        }
+      }
+    }
+
+    .main-container__slider {
+      &-content {
+        .slide {
+          box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
         }
       }
     }

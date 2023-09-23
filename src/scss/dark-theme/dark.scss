@@ -48,13 +48,15 @@
 
     .switch-theme {
       background-color: white;
-      color: black;
-      border: 2px solid black;
 
-      &:hover {
-        background-color: black;
-        color: white;
-        border: 2px solid white;
+      .ant-switch-handle {
+        &::before {
+          background-color: black;
+        }
+      }
+
+      .ant-switch-inner-checked {
+        color: black;
       }
     }
 

@@ -1,75 +1,23 @@
-.page-search {
-  position: absolute;
-  color: black;
-  border: 2px solid black;
-  height: auto;
-  width: 1000px;
-  left: 20%;
-  top: 100px;
-  display: flex;
-  flex-direction: column;
-  background: white;
-  font-size: 16px;
-  padding: 8px;
-  border-radius: 4px;
-  transition: 0.3s ease-out;
-  max-height: 500px;
+.ant-modal-content {
+  max-height: 750px;
+  overflow: hidden;
   overflow-y: scroll;
 
-  opacity: 0;
-  transform: translateY(-20px);
-  pointer-events: none;
-  visibility: hidden;
-  transition: 0.3s ease-out;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-    visibility: visible;
-  }
-
-  h1 {
-    font-size: 32px;
-    color: gray;
-    border-bottom: 1px solid gray;
-    line-height: 50px;
-  }
-
-  p {
-    display: flex;
-    align-items: center;
-
-    .symbol {
-      text-transform: uppercase;
+  .ant-modal-body {
+    p {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      img {
+        height: 30px;
+      }
     }
 
-    .icon {
-      margin-left: 5px;
-      vertical-align: middle;
-      font-size: 10px;
+    .page-search__links {
+      &-body {
+        display: flex;
+        flex-direction: column;
+      }
     }
-  }
-
-  a {
-    color: black;
-    margin: 16px 0;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  img {
-    margin-left: 5px;
-    height: 35px;
-    width: 35px;
-  }
-
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: auto;
   }
 }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../../scss/page-search/page-search.scss";
-
 import { BiSolidDownArrow } from "react-icons/bi";
 import { BiSolidUpArrow } from "react-icons/bi";
+import { Modal } from "antd";
 
 export default function PageSearch({ data, onClose }) {
   const [visible, setVisible] = useState(false);
@@ -19,12 +19,18 @@ export default function PageSearch({ data, onClose }) {
   };
 
   return (
-    <div className={`page-search ${visible ? "visible" : ""}`}>
-      <h1>Кратко о монете:</h1>
-      <p>Название: {data.name}</p>
+    <Modal
+      title={`Вы искали ${data.id}, вот что мы нашли:`}
+      centered
+      open={visible}
+      onOk={handleClose}
+      onCancel={handleClose}
+    >
+      <h2>Кратко о монете:</h2>
+      <p>Название: {data.name}</p>{" "}
       <p>
-        Символ:&nbsp; <span className="symbol">{data.symbol}</span>
-      </p>
+        Символ:&nbsp; <span className="symbol">{data.symbol}</span>{" "}
+      </p>{" "}
       <p>
         Логотип:{" "}
         <img
@@ -33,15 +39,13 @@ export default function PageSearch({ data, onClose }) {
         />
       </p>
       {data.contract_address && <p>Контракт: {data.contract_address}</p>}
-
-      <h1>Категории:</h1>
+      <h2>Категории:</h2>
       {data.categories.map((item, index) => (
         <p>
           {index + 1}. {item}
         </p>
       ))}
-
-      <h1>Цена:</h1>
+      <h2>Цена:</h2>
       <p>Текущая: {data.market_data.current_price.usd} $</p>
       <p>
         Изменения за 1 ч:{" "}
@@ -78,17 +82,20 @@ export default function PageSearch({ data, onClose }) {
           <BiSolidDownArrow color="red" className="icon" />
         )}
       </p>
-      <h1>Ссылки:</h1>
-      {data.links.blockchain_site.map((item, index) =>
-        item !== "" ? (
-          <a href={item}>
-            {index + 1}. {item}
-          </a>
-        ) : null
-      )}
-      <button className="close" onClick={handleClose}>
-        Закрыть
-      </button>
-    </div>
+      <div className="page-search__links">
+        <div className="page-search__links-header">
+          <h2>Ссылки:</h2>
+        </div>
+        <div className="page-search__links-body">
+          {data.links.blockchain_site.map((item, index) =>
+            item !== "" ? (
+              <a href={item}>
+                {index + 1}. {item}
+              </a>
+            ) : null
+          )}
+        </div>
+      </div>
+    </Modal>
   );
 }

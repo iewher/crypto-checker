@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
 import { Oval } from "react-loader-spinner";
-import { Table, ConfigProvider } from "antd";
+import { Table } from "antd";
 
 export default function TableMain() {
   const currencies = ["RUB", "USD", "EUR", "JPY"];

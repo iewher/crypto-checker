@@ -51,8 +51,6 @@
       }
     }
 
-    //TODO: поработать с цветами в таблице, смотрятся убого
-
     &__table {
       height: auto;
       min-height: 100vh;
@@ -64,17 +62,18 @@
         line-height: 100px;
       }
 
-      //TODO: накинуть красивую анимку для проявления text-decoration через opacity
-
       .list {
         display: flex;
         justify-content: space-between;
         font-size: 32px;
         color: gray;
+        position: relative;
 
         .active {
           text-decoration: underline;
           color: black;
+          transform: translateY(-20px);
+          transition: 0.3s;
         }
       }
 

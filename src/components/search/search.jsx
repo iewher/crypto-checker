@@ -11,14 +11,13 @@ export default function Search() {
     setValue(event.target.value);
   };
 
-  //TODO: перенести API запрос в отдельный файл
-
   const handleSearch = () => {
     if (value) {
       fetch(`https://api.coingecko.com/api/v3/coins/${value}`)
         .then((response) => response.json())
         .then((data) => {
           setData(data);
+          console.log(data);
         });
     }
   };

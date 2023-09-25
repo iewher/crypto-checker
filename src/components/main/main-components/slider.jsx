@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import PageSearch from "../../search/search-page";
 
 export default function SliderMain() {
   const [coin, setCoin] = useState([]);
+  const [data, setData] = useState([]);
+  const [check, setCheck] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -13,9 +16,26 @@ export default function SliderMain() {
       .then((data) => {
         setCoin(data.Data);
       });
-  }, []);
+  }, [coin]);
 
-  console.log(coin);
+  const goModal = (value) => {
+    const valueLowerCase = value.toLowerCase();
+    fetch(`https://api.coingecko.com/api/v3/coins/${valueLowerCase}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        setCheck(true);
+      });
+  };
+
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
+
+  const handleClose = () => {
+    setData([]);
+    setCheck(false);
+  };
 
   return (
     <div className="main-container__slider">
@@ -25,7 +45,7 @@ export default function SliderMain() {
       <div className="main-container__slider-content">
         <Swiper spaceBetween={50} slidesPerView={6}>
           {coin.map((item) => (
-            <SwiperSlide>
+            <SwiperSlide onClick={() => goModal(item.CoinInfo.FullName)}>
               <div className="slide">
                 <img
                   src={`https://www.cryptocompare.com${item.CoinInfo.ImageUrl}`}
@@ -35,39 +55,9 @@ export default function SliderMain() {
               </div>
             </SwiperSlide>
           ))}
-          <SwiperSlide></SwiperSlide>
-          {/* <SwiperSlide>
-            <div className="slide">В разработке</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide">В разработке</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide">В разработке</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide">В разработке</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide">В разработке</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide">В разработке</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide">В разработке</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide">В разработке</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide">В разработке</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide">В разработке</div>
-          </SwiperSlide> */}
         </Swiper>
       </div>
+      {check && <PageSearch data={data} onClose={handleClose} />}
     </div>
   );
 }

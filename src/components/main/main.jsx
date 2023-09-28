@@ -8,6 +8,7 @@ import Plans from "./main-components/plans";
 import TableMain from "./main-components/table";
 import StepsMain from "./main-components/steps";
 import SliderMain from "./main-components/slider";
+import Stats from "./main-components/stats";
 
 function Main() {
   return (
@@ -20,6 +21,7 @@ function Main() {
           <StepsMain />
           <SliderMain />
           <Plans />
+          <Stats />
         </div>
         <ButtonUp />
       </div>

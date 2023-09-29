@@ -1,11 +1,16 @@
 # Краткая справка
 
-Crypto-checker - сайт, для отслеживания крипты, удобный поиск, стильный дизайн
+Crypto-checker - сайт, для отслеживания криптовалюты, удобный поиск, стильный дизайн
 
 ## Использованные API
   
 1. https://min-api.cryptocompare.com/
 2. https://www.coingecko.com/en/api
+
+## Использованные UI
+ 
+1. Ant Design
+2. Material UI
 
 ## Установка
   

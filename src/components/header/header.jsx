@@ -6,6 +6,7 @@ import logo from "../../svg/logo-header.svg";
 import logo_dark from "../../svg/logo-header-dark.svg";
 import ButtonTheme from "../button-theme/button-theme";
 import UserMenu from "../user-menu/user-menu";
+import { Button } from "antd";
 
 function Header() {
   const [isLightTheme, setIsLightTheme] = useState(true);
@@ -27,7 +28,7 @@ function Header() {
           <a href="#plus">Преимущества</a>
           <a href="#plans">Планы</a>
           <Link to="contacts">
-            <button>Контакты</button>
+            <Button type="primary">Контакты</Button>
           </Link>
         </div>
         <ButtonTheme

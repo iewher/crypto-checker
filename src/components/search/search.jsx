@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import PageSearch from "./search-page";
+import { AudioOutlined } from "@ant-design/icons";
+import { Input, Space } from "antd";
 
 export default function Search() {
   const [value, setValue] = useState("");
   const [data, setData] = useState([]);
   const [check, setCheck] = useState(false);
+
+  const { Search } = Input;
 
   const handleInputChange = (event) => {
     setValue(event.target.value);
@@ -36,15 +40,12 @@ export default function Search() {
 
   return (
     <div className="header__search">
-      <input
-        type="search"
+      <Search
         placeholder="Найди криптовалюту"
         value={value}
         onChange={handleInputChange}
+        onSearch={handleSearch}
       />
-      <button onClick={handleSearch}>
-        <AiOutlineSearch />
-      </button>
       {check && <PageSearch data={data} onClose={handleClose} />}
     </div>
   );

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
 import PageSearch from "./search-page";
-import { AudioOutlined } from "@ant-design/icons";
-import { Input, Space } from "antd";
+import { Input } from "antd";
 
 export default function Search() {
   const [value, setValue] = useState("");

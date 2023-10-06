@@ -1,8 +1,10 @@
 import React from "react";
 import { Tabs, ConfigProvider } from "antd";
-import { useThemeDetection } from "../../theme-utils/theme-utils";
+import useThemeDetection from "../../theme-utils/theme-utils";
 
-export default function Plans() {
+// interface PlansProps {}
+
+const Plans: React.FunctionComponent = () => {
   const isLightTheme = useThemeDetection();
   const itemColor = isLightTheme ? "#000" : "#fff";
 
@@ -65,4 +67,6 @@ export default function Plans() {
       </div>
     </div>
   );
-}
+};
+
+export default Plans;

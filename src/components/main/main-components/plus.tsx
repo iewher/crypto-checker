@@ -1,8 +1,10 @@
 import React from "react";
 import { Tabs, ConfigProvider } from "antd";
-import { useThemeDetection } from "../../theme-utils/theme-utils";
+import useThemeDetection from "../../theme-utils/theme-utils";
 
-export default function Plus() {
+// interface PlusProps {}
+
+const Plus: React.FunctionComponent = () => {
   const isLightTheme = useThemeDetection();
   const itemColor = isLightTheme ? "#000" : "#fff";
 
@@ -48,7 +50,7 @@ export default function Plus() {
             components: {
               Tabs: {
                 itemColor: itemColor,
-                itemActiveColor: 50,
+                itemActiveColor: String(50),
               },
             },
           }}
@@ -66,4 +68,6 @@ export default function Plus() {
       </div>
     </div>
   );
-}
+};
+
+export default Plus;

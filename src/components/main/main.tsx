@@ -11,11 +11,13 @@ import SliderMain from "./main-components/slider";
 import { Modal } from "antd";
 import Cookies from "js-cookie";
 
-function Main() {
-  const [modalVisible, setModalVisible] = useState(true);
+// interface MainProps {}
+
+const Main: React.FunctionComponent = () => {
+  const [modalVisible, setModalVisible] = useState<boolean>(true);
 
   useEffect(() => {
-    const savedState = Cookies.get("modalState");
+    const savedState: string | undefined = Cookies.get("modalState");
 
     if (savedState === "1") {
       setModalVisible(false);
@@ -50,6 +52,6 @@ function Main() {
       />
     </PageLayout>
   );
-}
+};
 
 export default Main;

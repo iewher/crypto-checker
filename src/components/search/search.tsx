@@ -2,15 +2,23 @@ import React, { useEffect, useState } from "react";
 import PageSearch from "./search-page";
 import { Input } from "antd";
 
-export default function Search() {
-  const [value, setValue] = useState("");
-  const [data, setData] = useState([]);
-  const [check, setCheck] = useState(false);
+// interface SearchProps {}
+
+interface Data {
+  data: {
+    id: string;
+  };
+}
+
+const Search: React.FunctionComponent = () => {
+  const [value, setValue] = useState<string>("");
+  const [data, setData] = useState<Data[]>([]);
+  const [check, setCheck] = useState<boolean>(false);
 
   const { Search } = Input;
 
-  const handleInputChange = (event) => {
-    setValue(event.target.value);
+  const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
+    setValue(event.currentTarget.value);
   };
 
   const handleSearch = () => {
@@ -19,16 +27,15 @@ export default function Search() {
         .then((response) => response.json())
         .then((data) => {
           setData(data);
-          console.log(data);
         });
     }
   };
 
   useEffect(() => {
-    if (value === data.id) {
+    if (data.length > 0 && value === data[0].data.id) {
       setCheck(true);
     }
-  }, [value, data.id]);
+  }, [value, data]);
 
   const handleClose = () => {
     setValue("");
@@ -47,4 +54,6 @@ export default function Search() {
       {check && <PageSearch data={data} onClose={handleClose} />}
     </div>
   );
-}
+};
+
+export default Search;

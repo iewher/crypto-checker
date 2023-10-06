@@ -3,10 +3,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import PageSearch from "../../search/search-page";
 
-export default function SliderMain() {
-  const [coin, setCoin] = useState([]);
-  const [data, setData] = useState([]);
-  const [check, setCheck] = useState(false);
+// interface SliderProps {}
+
+interface Coin {
+  FullName: string;
+  ImageUrl: string;
+}
+
+const Slider: React.FunctionComponent = () => {
+  const [coin, setCoin] = useState<Coin[]>([]);
+  const [data, setData] = useState<any>([]);
+  const [check, setCheck] = useState<boolean>(false);
 
   useEffect(() => {
     fetch(
@@ -18,7 +25,7 @@ export default function SliderMain() {
       });
   }, [coin]);
 
-  const goModal = (value) => {
+  const goModal = (value: string) => {
     const valueLowerCase = value.toLowerCase();
     fetch(`https://api.coingecko.com/api/v3/coins/${valueLowerCase}`)
       .then((response) => response.json())
@@ -27,11 +34,6 @@ export default function SliderMain() {
         setCheck(true);
       });
   };
-
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
-
   const handleClose = () => {
     setData([]);
     setCheck(false);
@@ -45,13 +47,13 @@ export default function SliderMain() {
       <div className="main-container__slider-content">
         <Swiper spaceBetween={50} slidesPerView={6}>
           {coin.map((item) => (
-            <SwiperSlide onClick={() => goModal(item.CoinInfo.FullName)}>
+            <SwiperSlide onClick={() => goModal(item.FullName)}>
               <div className="slide">
                 <img
-                  src={`https://www.cryptocompare.com${item.CoinInfo.ImageUrl}`}
-                  alt={item.CoinInfo.FullName}
+                  src={`https://www.cryptocompare.com${item.ImageUrl}`}
+                  alt={item.FullName}
                 />
-                <p>{item.CoinInfo.FullName}</p>
+                <p>{item.FullName}</p>
               </div>
             </SwiperSlide>
           ))}
@@ -60,4 +62,6 @@ export default function SliderMain() {
       {check && <PageSearch data={data} onClose={handleClose} />}
     </div>
   );
-}
+};
+
+export default Slider;

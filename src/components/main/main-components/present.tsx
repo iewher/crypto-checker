@@ -1,12 +1,13 @@
 import React from "react";
-import logo from "../../../svg/logo-main.svg";
-import logo_dark from "../../../svg/logo-main-dark.svg";
-import { useThemeDetection } from "../../theme-utils/theme-utils";
+import useThemeDetection from "../../theme-utils/theme-utils";
 import { Collapse } from "antd";
 
-export default function Present() {
-  const isLightTheme = useThemeDetection();
+// interface PresentProps {}
 
+const Present: React.FunctionComponent = () => {
+  const isLightTheme = useThemeDetection();
+  const logo = require("../../../svg/logo-main.svg");
+  const logo_dark = require("../../../svg/logo-main-dark.svg");
   const items = [
     {
       key: "1",
@@ -65,4 +66,6 @@ export default function Present() {
       </div>
     </div>
   );
-}
+};
+
+export default Present;

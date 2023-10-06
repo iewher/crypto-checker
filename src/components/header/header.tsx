@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import "../../scss/header/header.scss";
 import { Link } from "react-scroll";
 import Search from "../search/search";
-import logo from "../../svg/logo-header.svg";
-import logo_dark from "../../svg/logo-header-dark.svg";
 import ButtonTheme from "../button-theme/button-theme";
 import UserMenu from "../user-menu/user-menu";
 import { Button } from "antd";
 
-function Header() {
-  const [isLightTheme, setIsLightTheme] = useState(true);
+// interface HeaderProps {}
+
+const Header: React.FunctionComponent = () => {
+  const [isLightTheme, setIsLightTheme] = useState<boolean>(true);
+  const logo = require("../../svg/logo-header.svg") as string;
+  const logo_dark = require("../../svg/logo-header-dark.svg") as string;
 
   return (
     <div className="header" id="header">
@@ -18,7 +20,7 @@ function Header() {
           {isLightTheme ? (
             <img src={logo} alt="logo" />
           ) : (
-            <img src={logo_dark} alt="logo-dark" />
+            <img src={logo_dark} alt="logo_dark" />
           )}
         </div>
         <Search />
@@ -39,6 +41,6 @@ function Header() {
       </div>
     </div>
   );
-}
+};
 
 export default Header;

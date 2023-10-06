@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 
-export function useThemeDetection() {
-  const [isLightTheme, setIsLightTheme] = useState(true);
-  const root = document.getElementById("root");
+const useThemeDetection = () => {
+  const [isLightTheme, setIsLightTheme] = useState<boolean>(true);
+  const root: any = document.getElementById("root");
+
+  console.log(root);
 
   useEffect(() => {
     const checkTheme = () => {
@@ -21,4 +23,6 @@ export function useThemeDetection() {
   }, [root]);
 
   return isLightTheme;
-}
+};
+
+export default useThemeDetection;

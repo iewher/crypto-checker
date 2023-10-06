@@ -1,7 +1,9 @@
 import React from "react";
 import "../../scss/footer/footer.scss";
 
-function Footer() {
+// interface FooterProps {}
+
+const Footer: React.FunctionComponent = () => {
   return (
     <div className="footer">
       <div className="footer-container">
@@ -21,6 +23,6 @@ function Footer() {
       </div>
     </div>
   );
-}
+};
 
 export default Footer;

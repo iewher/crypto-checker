@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 
-function PageLayout({ children }) {
+interface PageLayoutProps {
+  children: JSX.Element | JSX.Element[];
+}
+
+const PageLayout: React.FunctionComponent<PageLayoutProps> = ({children}) => {
   return (
     <div>
       <Header />
@@ -11,7 +15,7 @@ function PageLayout({ children }) {
       <Footer />
     </div>
   );
-}
+};
 
 PageLayout.propTypes = {
   children: PropTypes.element.isRequired,

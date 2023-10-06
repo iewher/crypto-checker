@@ -6,10 +6,12 @@ import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 
-export default function UserMenu() {
-  const [anchorEl, setAnchorEl] = useState(null);
+// interface UserMenuProps {}
+
+const UserMenu: React.FunctionComponent = () => {
+  const [anchorEl, setAnchorEl] = useState<any>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event) => {
+  const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
@@ -74,4 +76,6 @@ export default function UserMenu() {
       </Menu>
     </>
   );
-}
+};
+
+export default UserMenu;

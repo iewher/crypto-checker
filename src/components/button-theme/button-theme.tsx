@@ -4,11 +4,19 @@ import { BsFillSunFill } from "react-icons/bs";
 import { Switch } from "antd";
 import Cookies from "js-cookie";
 
-export default function ButtonTheme({ isLightTheme, setIsLightTheme }) {
-  const root = document.getElementById("root");
+interface ButtonThemeProps {
+  isLightTheme: boolean;
+  setIsLightTheme: Function;
+}
+
+const ButtonTheme: React.FunctionComponent<ButtonThemeProps> = ({
+  isLightTheme,
+  setIsLightTheme,
+}) => {
+  const root: any = document.getElementById("root");
 
   const switchTheme = () => {
-    setIsLightTheme((prevTheme) => !prevTheme);
+    setIsLightTheme((prevTheme: string) => !prevTheme);
     Cookies.set("isLightTheme", !isLightTheme ? "1" : "0");
 
     if (isLightTheme === true) {
@@ -32,7 +40,7 @@ export default function ButtonTheme({ isLightTheme, setIsLightTheme }) {
       root.classList.remove("light");
       root.classList.add("dark");
     }
-  }, []);
+  }, [root.classList, setIsLightTheme]);
 
   return (
     <Switch
@@ -42,4 +50,6 @@ export default function ButtonTheme({ isLightTheme, setIsLightTheme }) {
       className="switch-theme"
     />
   );
-}
+};
+
+export default ButtonTheme;

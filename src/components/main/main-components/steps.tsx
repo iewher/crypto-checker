@@ -4,9 +4,11 @@ import Stack from "@mui/material/Stack";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel, { stepLabelClasses } from "@mui/material/StepLabel";
-import { useThemeDetection } from "../../theme-utils/theme-utils";
+import useThemeDetection from "../../theme-utils/theme-utils";
 
-export default function StepsMain() {
+// interface StepsProps {}
+
+const Steps: React.FunctionComponent = () => {
   const isLightTheme = useThemeDetection();
   const itemColor = isLightTheme ? "#000" : "#fff";
 
@@ -42,4 +44,6 @@ export default function StepsMain() {
       </Stack>
     </div>
   );
-}
+};
+
+export default Steps;

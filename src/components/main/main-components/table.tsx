@@ -3,13 +3,22 @@ import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
 import { Oval } from "react-loader-spinner";
 import { Table } from "antd";
 
-export default function TableMain() {
-  const currencies = ["RUB", "USD", "EUR", "JPY"];
-  const [activeCurrency, setActiveCurrency] = useState(currencies[0]);
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
+// interface TableProps {}
 
-  const handleSetActive = (currency) => {
+interface Data {
+  DISPLAY: any;
+  CoinInfo: {
+    FullName: string;
+  };
+}
+
+const TableMain: React.FunctionComponent = () => {
+  const currencies = ["RUB", "USD", "EUR", "JPY"];
+  const [activeCurrency, setActiveCurrency] = useState<string>(currencies[0]);
+  const [data, setData] = useState<Data[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const handleSetActive = (currency: string) => {
     setActiveCurrency(currency);
   };
 
@@ -44,7 +53,7 @@ export default function TableMain() {
       title: "1 ч",
       dataIndex: "change1h",
       key: "change1h",
-      render: (change1h) => (
+      render: (change1h: number) => (
         <>
           {`${change1h}% `}
           {change1h > 0 ? (
@@ -59,7 +68,7 @@ export default function TableMain() {
       title: "24 ч",
       dataIndex: "change24h",
       key: "change24h",
-      render: (change24h) => (
+      render: (change24h: number) => (
         <>
           {`${change24h}% `}
           {change24h > 0 ? (
@@ -111,7 +120,7 @@ export default function TableMain() {
         <div className="main-container__table" id="table">
           <h1>Таблица</h1>
           <div className="list">
-            {currencies.map((currency) => (
+            {currencies.map((currency: string) => (
               <p
                 key={currency}
                 className={activeCurrency === currency ? "active" : ""}
@@ -130,4 +139,6 @@ export default function TableMain() {
       )}
     </>
   );
-}
+};
+
+export default TableMain;

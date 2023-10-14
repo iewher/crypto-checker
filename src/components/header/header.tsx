@@ -5,13 +5,13 @@ import Search from "../search/search";
 import ButtonTheme from "../button-theme/button-theme";
 import UserMenu from "../user-menu/user-menu";
 import { Button } from "antd";
+import logo from "../../svg/logo-header.svg";
+import logo_dark from "../../svg/logo-header-dark.svg";
 
 // interface HeaderProps {}
 
 const Header: React.FunctionComponent = () => {
   const [isLightTheme, setIsLightTheme] = useState<boolean>(true);
-  const logo = require("../../svg/logo-header.svg") as string;
-  const logo_dark = require("../../svg/logo-header-dark.svg") as string;
 
   return (
     <div className="header" id="header">

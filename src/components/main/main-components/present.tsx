@@ -1,13 +1,14 @@
 import React from "react";
 import useThemeDetection from "../../theme-utils/theme-utils";
 import { Collapse } from "antd";
+import logo from "../../../svg/logo-main.svg";
+import logo_dark from "../../../svg/logo-main-dark.svg";
 
 // interface PresentProps {}
 
 const Present: React.FunctionComponent = () => {
   const isLightTheme = useThemeDetection();
-  const logo = require("../../../svg/logo-main.svg");
-  const logo_dark = require("../../../svg/logo-main-dark.svg");
+
   const items = [
     {
       key: "1",

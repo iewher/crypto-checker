@@ -1,0 +1,53 @@
+.Table {
+  height: auto;
+  min-height: 100vh;
+
+  h1 {
+    font-size: 48px;
+    color: gray;
+    border-bottom: 1px solid gray;
+    line-height: 100px;
+    margin-bottom: 40px;
+  }
+
+  .List {
+    display: flex;
+    justify-content: space-between;
+    font-size: 32px;
+    color: gray;
+    position: relative;
+    margin-bottom: 40px;
+
+    .Active {
+      text-decoration: underline;
+      color: black;
+      transform: translateY(-20px);
+      transition: 0.3s;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    tr {
+      border-bottom: 1px solid black;
+    }
+
+    td {
+      font-size: 17px;
+      padding: 10px;
+      text-align: center;
+
+      .Icon {
+        margin-left: 5px;
+        vertical-align: middle;
+        font-size: 10px;
+      }
+    }
+  }
+
+  .no-table {
+    position: absolute;
+    left: 50%;
+  }
+}

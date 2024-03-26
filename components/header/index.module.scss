@@ -1,0 +1,58 @@
+.Header {
+  color: white;
+  width: 100%;
+  min-height: 90px;
+  font-size: 16px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+
+  .Container {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .Logo {
+      height: 50px;
+      width: 100px;
+      width: auto;
+      color: black;
+      display: flex;
+      align-items: center;
+      transition: 0.3s;
+
+      &:hover {
+        transform: scale(1.03);
+      }
+
+      img {
+        height: 150%;
+        width: 100%;
+      }
+    }
+
+    .Actions {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      a {
+        color: black;
+        text-decoration: none;
+        transition: 0.3s;
+
+        &:hover {
+          transform: scale(1.03);
+          text-decoration: underline;
+        }
+      }
+
+      button {
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+}

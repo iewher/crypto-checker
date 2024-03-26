@@ -1,0 +1,18 @@
+.Present {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .Text {
+    width: 50%;
+    .ant-collapse {
+      min-width: 600px;
+      max-width: 600px;
+    }
+  }
+
+  img {
+    width: 50%;
+  }
+}

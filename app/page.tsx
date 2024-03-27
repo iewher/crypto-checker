@@ -3,6 +3,7 @@ import TableMain from "@/components/table";
 import Plus from "@/components/plus";
 import Steps from "@/components/steps";
 import Plans from "@/components/plans";
+import Slider from "@/components/slider";
 import styles from "./page.module.scss";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <Plus />
         <Steps />
         <Plans />
+        <Slider />
       </div>
     </div>
   );

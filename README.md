@@ -1,6 +1,10 @@
-# Краткая справка
+![logo](public/logo.png)
 
-Crypto-checker - сайт, для отслеживания криптовалюты, удобный поиск, стильный дизайн
+# Crypto-checker
+
+## Краткая справка
+
+Crypto-checker - сайт для отслеживания криптовалюты, удобный поиск, стильный дизайн
 
 ## Использованные API
 
@@ -20,20 +24,8 @@ Crypto-checker - сайт, для отслеживания криптовалю�
 
 # Обзор
 
-Краткий обзор моего проекта
-
-<div align="center">
-
-Главная страница
-
 <image src="public/git/page-main.png" height="auto" width="650">
-
-Модальное окно при поиске монеты
-
-<image src="public/git/page-modal.png" height="auto" width="auto">
   
-</div>
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

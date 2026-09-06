@@ -1,64 +1,53 @@
 ![logo](public/logo.png)
 
-# Crypto-checker
+# Crypto checker
 
-## Краткая справка
+Сайт для отслеживания курсов криптовалют в реальном времени. Поиск, сравнение и просмотр статистики цифровых активов.
 
-Crypto-checker - сайт для отслеживания криптовалюты, удобный поиск, стильный дизайн
+## Стек технологий
 
-## Использованные API
+- **Next.js 14** (App Router)
+- **React 18** + **TypeScript**
+- **Ant Design** — UI-компоненты
+- **Material UI** — Stepper
+- **SCSS Modules** — стили
 
-1. https://min-api.cryptocompare.com/
-2. https://www.coingecko.com/en/api
+## API
 
-## Использованные UI
+- [CryptoCompare](https://min-api.cryptocompare.com/) — данные о криптовалютах
 
-1. Ant Design
-2. Material UI
+## Запуск проекта
 
-## Установка
+1. Установите зависимости:
 
-Перед запуском проекта обязательно прописать в терминал:
+```bash
+npm install
+```
 
-### `npm install`
-
-# Обзор
-
-<image src="public/git/page-main.png" height="auto" width="650">
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
+2. Запустите dev-сервер:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Откройте [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Команды
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Команда         | Описание                     |
+| --------------- | ---------------------------- |
+| `npm run dev`   | Запуск dev-сервера           |
+| `npm run build` | Сборка для продакшена        |
+| `npm start`     | Запуск собранного приложения |
+| `npm run lint`  | Проверка кода ESLint         |
 
-## Learn More
+## Структура проекта
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+├── app/              # Страницы и layout
+├── components/       # UI-компоненты
+├── hooks/            # Кастомные хуки (API)
+├── styles/           # Общие стили
+├── utils/            # Утилиты (форматирование)
+└── public/           # Статические файлы
+```

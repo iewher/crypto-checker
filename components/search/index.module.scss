@@ -1,5 +1,44 @@
 .Search {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: var(--spacing-md);
+  flex: 1;
+  max-width: 500px;
+
+  .Input {
+    flex: 1;
+  }
+
+  .SearchIcon {
+    color: var(--color-text-secondary);
+  }
+
+  .ClearButton {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color var(--transition-fast);
+
+    &:hover {
+      background-color: #f3f4f6;
+    }
+  }
+
+  .Button {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .Search {
+    max-width: 100%;
+    order: 3;
+    width: 100%;
+  }
 }

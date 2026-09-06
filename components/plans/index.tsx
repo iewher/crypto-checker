@@ -1,10 +1,19 @@
+"use client";
+
 import { Tabs, ConfigProvider } from "antd";
+import type { TabsProps } from "antd";
 import styles from "./index.module.scss";
 
-// interface PlansProps {}
+interface PlansProps {}
 
-const Plans: React.FunctionComponent = () => {
-  const items = [
+interface TabItem {
+  key: string;
+  label: string;
+  children: React.ReactNode;
+}
+
+const Plans: React.FC<PlansProps> = () => {
+  const items: TabItem[] = [
     {
       key: "1",
       label: "Технологии",
@@ -37,10 +46,17 @@ const Plans: React.FunctionComponent = () => {
     },
   ];
 
+  const tabProps: TabsProps = {
+    defaultActiveKey: "1",
+    items,
+    size: "large",
+    tabPosition: "left",
+  };
+
   return (
-    <div className={styles.Plans} id="plans">
-      <div className={styles.Spans}>
-        <h1>Планы на будущее</h1>
+    <section className={styles.Plans} id="plans">
+      <h1 className={styles.Title}>Планы на будущее</h1>
+      <div className={styles.Content}>
         <ConfigProvider
           theme={{
             components: {
@@ -48,15 +64,10 @@ const Plans: React.FunctionComponent = () => {
             },
           }}
         >
-          <Tabs
-            defaultActiveKey="1"
-            items={items}
-            size="large"
-            tabPosition="left"
-          />
+          <Tabs {...tabProps} />
         </ConfigProvider>
       </div>
-    </div>
+    </section>
   );
 };
 

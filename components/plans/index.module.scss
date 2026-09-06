@@ -1,50 +1,25 @@
 .Plans {
-  height: auto;
   min-height: 70vh;
+  padding: 40px 0;
 
-  h1 {
-    font-size: 48px;
-    color: gray;
-    border-bottom: 1px solid gray;
+  .Title {
+    font-size: var(--font-size-h1);
+    color: var(--color-text-secondary);
+    border-bottom: var(--border-width) solid var(--color-text-secondary);
     line-height: 100px;
+    margin-bottom: 40px;
   }
 
-  .list {
-    display: flex;
-    justify-content: space-between;
-    font-size: 32px;
-    color: black;
-  }
-
-  .Spans {
+  .Content {
     display: flex;
     flex-direction: column;
+  }
+}
 
-    p {
-      display: flex;
-      align-items: center;
-      min-height: 110px;
-      border-top: 1px solid gray;
-      border-bottom: 1px solid gray;
-      margin: 0;
-      color: gray;
-
-      span {
-        font-weight: bold;
-        color: black;
-      }
-
-      &:first-child {
-        border: none;
-      }
-
-      &:nth-child(3) {
-        border: none;
-      }
-
-      &:last-child {
-        border: none;
-      }
+@media (max-width: 768px) {
+  .Plans {
+    .Title {
+      line-height: normal;
     }
   }
 }

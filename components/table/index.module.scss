@@ -1,11 +1,12 @@
 .Table {
   height: auto;
   min-height: 100vh;
+  padding: 40px 0;
 
-  h1 {
-    font-size: 48px;
-    color: gray;
-    border-bottom: 1px solid gray;
+  .Title {
+    font-size: var(--font-size-h1);
+    color: var(--color-text-secondary);
+    border-bottom: var(--border-width) solid var(--color-text-secondary);
     line-height: 100px;
     margin-bottom: 40px;
   }
@@ -13,41 +14,92 @@
   .List {
     display: flex;
     justify-content: space-between;
-    font-size: 32px;
-    color: gray;
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
     position: relative;
     margin-bottom: 40px;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .CurrencyButton {
+      background: none;
+      border: none;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: var(--border-radius);
+      transition: all var(--transition-base);
+
+      &:hover {
+        color: var(--color-text-primary);
+      }
+    }
 
     .Active {
       text-decoration: underline;
-      color: black;
+      color: var(--color-text-primary);
       transform: translateY(-20px);
       transition: 0.3s;
     }
   }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    tr {
-      border-bottom: 1px solid black;
-    }
+  .Error {
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: var(--border-radius);
+    padding: 16px 24px;
+    margin-bottom: 24px;
+    color: #991b1b;
 
-    td {
-      font-size: 17px;
-      padding: 10px;
-      text-align: center;
-
-      .Icon {
-        margin-left: 5px;
-        vertical-align: middle;
-        font-size: 10px;
-      }
+    p {
+      margin-bottom: 12px;
     }
   }
 
-  .no-table {
-    position: absolute;
-    left: 50%;
+  .RetryButton {
+    padding: 8px 16px;
+    background-color: #991b1b;
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color var(--transition-fast);
+
+    &:hover {
+      background-color: #7f1d1d;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    tr {
+      transition: background-color var(--transition-fast);
+
+      &:hover {
+        background-color: #f9fafb;
+      }
+    }
+
+    td {
+      font-size: var(--font-size-lg);
+      padding: 12px 10px;
+      text-align: center;
+    }
+
+    .IndexColumn {
+      text-align: center !important;
+    }
+
+    .Icon {
+      margin-left: 5px;
+      vertical-align: middle;
+      font-size: 12px;
+    }
   }
 }

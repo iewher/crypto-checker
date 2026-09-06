@@ -25,7 +25,7 @@ Crypto-checker - сайт для отслеживания криптовалют
 # Обзор
 
 <image src="public/git/page-main.png" height="auto" width="650">
-  
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

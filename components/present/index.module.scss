@@ -1,18 +1,51 @@
 .Present {
   height: 100vh;
+  min-height: 600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 40px;
+  padding: 40px 0;
+
+  .LogoWrapper {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .Text {
     width: 50%;
-    .ant-collapse {
-      min-width: 600px;
-      max-width: 600px;
+
+    :global(.ant-collapse) {
+      min-width: 300px;
     }
   }
 
   img {
-    width: 50%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 768px) {
+  .Present {
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+    padding: 40px 0;
+
+    .LogoWrapper {
+      width: 100%;
+    }
+
+    .Text {
+      width: 100%;
+
+      :global(.ant-collapse) {
+        min-width: auto;
+      }
+    }
   }
 }

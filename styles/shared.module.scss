@@ -1,0 +1,40 @@
+/* === Shared Section Title === */
+.section-title {
+  font-size: var(--font-size-h1);
+  color: var(--color-text-secondary);
+  border-bottom: var(--border-width) solid var(--color-text-secondary);
+  line-height: 100px;
+  margin-bottom: 40px;
+}
+
+.section-title:last-child {
+  margin-bottom: 0;
+}
+
+/* === Loading State === */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+/* === Error State === */
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  color: var(--color-text-secondary);
+  font-size: 18px;
+}
+
+/* === Common Button === */
+.clickable {
+  cursor: pointer;
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-text-primary);
+  }
+}

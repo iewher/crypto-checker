@@ -1,36 +1,72 @@
 .Slider {
   min-height: 40vh;
+  padding: 40px 0;
 
   .Title {
-    h1 {
-      font-size: 48px;
-      color: gray;
-      border-bottom: 1px solid gray;
+    .TitleText {
+      font-size: var(--font-size-h1);
+      color: var(--color-text-secondary);
+      border-bottom: var(--border-width) solid var(--color-text-secondary);
       line-height: 100px;
+      margin-bottom: 40px;
     }
+  }
+
+  .Loading,
+  .Error,
+  .Empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    color: var(--color-text-secondary);
+    font-size: 18px;
+  }
+
+  .Error {
+    color: #991b1b;
+    background-color: #fef2f2;
+    border-radius: var(--border-radius);
+    padding: 20px;
   }
 
   .Body {
     height: 500px;
-    overflow: hidden;
     overflow-x: auto;
     display: flex;
     align-items: center;
     gap: 50px;
     scroll-snap-type: x mandatory;
+    padding: 20px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db transparent;
+
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #d1d5db;
+      border-radius: 4px;
+    }
 
     .Slide {
-      border-radius: 6px;
+      border-radius: var(--border-radius);
       flex-shrink: 0;
       height: 200px;
-      color: black;
-      background: white;
+      width: 120px;
+      color: var(--color-text-primary);
+      background: var(--color-white);
       justify-content: center;
       display: flex;
       align-items: center;
       flex-direction: column;
-      box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
-      transition: 0.3s;
+      box-shadow: var(--shadow-card);
+      transition: transform var(--transition-base);
       gap: 5px;
       scroll-snap-align: start;
 
@@ -41,13 +77,33 @@
       img {
         height: 80%;
         width: 80%;
-        object-fit: cover;
+        object-fit: contain;
       }
 
       p {
         margin: 0;
         padding: 0;
-        color: gray;
+        color: var(--color-text-secondary);
+        font-size: 12px;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Slider {
+    .Body {
+      height: 400px;
+      gap: 30px;
+
+      .Slide {
+        height: 160px;
+        width: 100px;
       }
     }
   }

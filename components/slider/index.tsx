@@ -1,51 +1,71 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import "swiper/swiper.min.css";
+import Image from "next/image";
+import { useCryptoSlider } from "@/hooks/useCryptocompare";
 import styles from "./index.module.scss";
 
-interface CoinProps {
-    CoinInfo: {
-        FullName: string;
-        ImageUrl: string;
-    }
+const Slider: React.FC = () => {
+  const { data: coins, loading, error } = useCryptoSlider();
 
-}
+  if (loading) {
+    return (
+      <section className={styles.Slider}>
+        <div className={styles.Title}>
+          <h1 className={styles.TitleText}>Список криптовалют</h1>
+        </div>
+        <div className={styles.Loading}>
+          <p>Загрузка криптовалют...</p>
+        </div>
+      </section>
+    );
+  }
 
-const Slider: React.FunctionComponent = () => {
-  const [coin, setCoin] = useState<CoinProps[]>([]);
+  if (error) {
+    return (
+      <section className={styles.Slider}>
+        <div className={styles.Title}>
+          <h1 className={styles.TitleText}>Список криптовалют</h1>
+        </div>
+        <div className={styles.Error}>
+          <p>Ошибка загрузки: {error}</p>
+        </div>
+      </section>
+    );
+  }
 
-  useEffect(() => {
-    fetch(
-      `https://min-api.cryptocompare.com/data/top/totaltoptiervolfull?limit=100&tsym=USD`,
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setCoin(data.Data);
-      });
-  }, []);
-
-  console.log(coin)
-
-  if (coin === undefined) return <div>Загрузка...</div>;
+  if (!coins || coins.length === 0) {
+    return (
+      <section className={styles.Slider}>
+        <div className={styles.Title}>
+          <h1 className={styles.TitleText}>Список криптовалют</h1>
+        </div>
+        <div className={styles.Empty}>
+          <p>Нет данных для отображения</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <div className={styles.Slider}>
+    <section className={styles.Slider}>
       <div className={styles.Title}>
-        <h1>Список криптовалют на нашем сайте</h1>
+        <h1 className={styles.TitleText}>Список криптовалют на нашем сайте</h1>
       </div>
       <div className={styles.Body}>
-        {coin.map((item) => (
+        {coins.map((item) => (
           <div className={styles.Slide} key={item.CoinInfo.FullName}>
-            <img
+            <Image
               src={`https://www.cryptocompare.com${item.CoinInfo.ImageUrl}`}
               alt={item.CoinInfo.FullName}
+              width={80}
+              height={80}
+              loading="lazy"
             />
             <p>{item.CoinInfo.FullName}</p>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,10 +1,19 @@
+"use client";
+
 import { Tabs, ConfigProvider } from "antd";
+import type { TabsProps } from "antd";
 import styles from "./index.module.scss";
 
-// interface PlusProps {}
+interface PlusProps {}
 
-const Plus: React.FunctionComponent = () => {
-  const items = [
+interface TabItem {
+  key: string;
+  label: string;
+  children: React.ReactNode;
+}
+
+const Plus: React.FC<PlusProps> = () => {
+  const items: TabItem[] = [
     {
       key: "1",
       label: "Информативность",
@@ -21,7 +30,7 @@ const Plus: React.FunctionComponent = () => {
       key: "3",
       label: "Коммуникация",
       children:
-        "На нашем сайте есть способы связи, они обеспечивает эффективное взаимодействие с посетителями, что способствует установлению контакта и обмену информацией.",
+        "На нашем сайте есть способы связи, они обеспечивают эффективное взаимодействие с посетителями, что способствует установлению контакта и обмену информацией.",
     },
     {
       key: "4",
@@ -33,32 +42,34 @@ const Plus: React.FunctionComponent = () => {
       key: "5",
       label: "Контент",
       children:
-        "Наш сайт регулярно обновляется новым иинтересным контентом, это может привлекать и удерживать посетителей, а также улучшать его позиции в поисковых системах.",
+        "Наш сайт регулярно обновляется новым и интересным контентом, это может привлекать и удерживать посетителей, а также улучшать его позиции в поисковых системах.",
     },
   ];
 
+  const tabProps: TabsProps = {
+    defaultActiveKey: "1",
+    items,
+    size: "large",
+    tabPosition: "left",
+  };
+
   return (
-    <div className={styles.Plus} id="plus">
-      <div className={styles.Spans}>
-        <h1>Преимущества</h1>
+    <section className={styles.Plus} id="plus">
+      <h1 className={styles.Title}>Преимущества</h1>
+      <div className={styles.Content}>
         <ConfigProvider
           theme={{
             components: {
               Tabs: {
-                itemActiveColor: String(50),
+                itemActiveColor: "#000",
               },
             },
           }}
         >
-          <Tabs
-            defaultActiveKey="1"
-            items={items}
-            size="large"
-            tabPosition="left"
-          />
+          <Tabs {...tabProps} />
         </ConfigProvider>
       </div>
-    </div>
+    </section>
   );
 };
 

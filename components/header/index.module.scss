@@ -1,11 +1,15 @@
 .Header {
-  color: white;
+  color: var(--color-text-primary);
   width: 100%;
   min-height: 90px;
-  font-size: 16px;
-  background-color: white;
+  font-size: var(--font-size-base);
+  background-color: var(--color-white);
   display: flex;
   justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
   .Container {
     max-width: 1440px;
@@ -13,23 +17,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
+
+    .LogoLink {
+      display: flex;
+      align-items: center;
+      transition: opacity var(--transition-fast);
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
 
     .Logo {
       height: 50px;
-      width: 100px;
-      width: auto;
-      color: black;
       display: flex;
       align-items: center;
-      transition: 0.3s;
+      transition: transform var(--transition-base);
 
       &:hover {
         transform: scale(1.03);
-      }
-
-      img {
-        height: 150%;
-        width: 100%;
       }
     }
 
@@ -39,18 +46,29 @@
       gap: 30px;
 
       a {
-        color: black;
+        color: var(--color-text-primary);
         text-decoration: none;
-        transition: 0.3s;
+        transition: color var(--transition-fast);
+        font-weight: 500;
 
         &:hover {
-          text-decoration: underline;
+          color: var(--color-text-secondary);
         }
       }
+    }
+  }
+}
 
-      button {
-        background-color: black;
-        color: white;
+@media (max-width: 768px) {
+  .Header {
+    .Container {
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 20px;
+
+      .Actions {
+        gap: 15px;
+        font-size: 14px;
       }
     }
   }
